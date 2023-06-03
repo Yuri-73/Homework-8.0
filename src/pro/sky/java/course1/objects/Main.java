@@ -3,19 +3,20 @@ package pro.sky.java.course1.objects;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Ввожу в справочник book1:");
-        Author bookTolstoy = new Author("Лев", "Толстой");
-        Book book1 = new Book(bookTolstoy, "Война и мир", 1982);
+        Author levTolstoy = new Author("Лев", "Толстой"); //Важно этот объект автора объявить раньше объекта книги!
+        Book book1 = new Book(levTolstoy, "Война и мир", 1982);
 
-        System.out.println("book1.authorName = " + book1.getAuthorName().getFirstName() + " " + book1.getAuthorName().getLastName());
-        System.out.println("book1.bookName = " + book1.getBookName());
-        System.out.println("book1.publishingYear = " + book1.getPublishingYear());
+        System.out.println("book1.author = " + book1.getAuthor()); //Использовал для вывода поля-класса author геттер автора в классе Book (за счёт делегирования связи по toString)
+
+        System.out.println("book1.bookName = " + book1.getBookName()); //Использовал для вывода поля-String bookName геттер в классе Book
+        System.out.println("book1.publishingYear = " + book1.getPublishingYear()); //Использовал для вывода поля-int publishingYear геттер в классе Book
         System.out.println();
 
-        System.out.println("Ввожу в справочник book2:");
-        Author bookSimonov = new Author("Константин", "Симонов");
-        Book book2 = new Book(bookSimonov, "Живые и мёртвые", 1995);
+        System.out.println("Ввожу в справочник объект book2:");
+        Author konstantinSimonov = new Author("Константин", "Симонов"); //Важно этот объект автора объявить раньше объекта книги!
+        Book book2 = new Book(konstantinSimonov, "Живые и мёртвые", 1995);
 
-        System.out.println("book2.authorName = " + book2.getAuthorName().getFirstName() + " " + book2.getAuthorName().getLastName());
+        System.out.println("book2.author = " + book2.getAuthor().getFirstName() + " " + book2.getAuthor().getLastName()); //2-этажный вывод полей автора в классе Author
         System.out.println("book2.bookName = " + book2.getBookName());
         System.out.println("book2.publishingYear = " + book2.getPublishingYear());
         System.out.println();
@@ -35,7 +36,7 @@ public class Main {
         Author bookSearch = new Author("Лев", "Толстой");
         Book book3 = new Book(bookSearch, "Война и мир", 1982);
 
-        System.out.println("book3.authorName = " + book3.getAuthorName().getFirstName() + " " + book3.getAuthorName().getLastName());
+        System.out.println("book3.author = " + book3.getAuthor().getFirstName() + " " + book3.getAuthor().getLastName());
         System.out.println("book3.bookName = " + book3.getBookName());
         System.out.println("book3.publishingYear = " + book3.getPublishingYear());
         System.out.println("Найденная книга: " + book3);
@@ -54,7 +55,6 @@ public class Main {
             System.out.println("Объекты равны между собой");
         }
         else {System.out.println("Объекты не равны");}
-
 
     }
 }
